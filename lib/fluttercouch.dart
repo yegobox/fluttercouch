@@ -1,7 +1,17 @@
+import 'dart:async';
+
+import 'package:flutter/services.dart';
+import 'package:fluttercouch/document.dart';
+
 export 'document.dart';
-export 'mutable_document.dart';
 export 'listener_token.dart';
-export 'query/query.dart';
+export 'mutable_document.dart';
+export 'query/expression/expression.dart';
+export 'query/expression/meta.dart';
+export 'query/expression/meta.dart';
+export 'query/expression/meta_expression.dart';
+export 'query/expression/property_expression.dart';
+export 'query/expression/variable_expression.dart';
 export 'query/from.dart';
 export 'query/functions.dart';
 export 'query/group_by.dart';
@@ -12,23 +22,13 @@ export 'query/limit.dart';
 export 'query/order_by.dart';
 export 'query/ordering.dart';
 export 'query/parameters.dart';
+export 'query/query.dart';
 export 'query/query_builder.dart';
-export 'query/result_set.dart';
 export 'query/result.dart';
-export 'query/select_result.dart';
+export 'query/result_set.dart';
 export 'query/select.dart';
+export 'query/select_result.dart';
 export 'query/where.dart';
-export 'query/expression/expression.dart';
-export 'query/expression/meta.dart';
-export 'query/expression/meta_expression.dart';
-export 'query/expression/meta.dart';
-export 'query/expression/property_expression.dart';
-export 'query/expression/variable_expression.dart';
-
-import 'dart:async';
-
-import 'package:flutter/services.dart';
-import 'package:fluttercouch/document.dart';
 
 abstract class Fluttercouch {
   static const MethodChannel _methodChannel =
@@ -57,6 +57,9 @@ abstract class Fluttercouch {
 
   Future<Null> setReplicatorEndpoint(String _endpoint) =>
       _methodChannel.invokeMethod('setReplicatorEndpoint', _endpoint);
+
+  Future<Null> setChannel(String _setChannel) =>
+      _methodChannel.invokeMethod('setChannell', _setChannel);
 
   Future<Null> setReplicatorType(String _type) =>
       _methodChannel.invokeMethod('setReplicatorType', _type);

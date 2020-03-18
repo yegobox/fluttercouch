@@ -24,7 +24,9 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 class CBManager {
@@ -118,6 +120,12 @@ class CBManager {
     public void setReplicatorEndpoint(String _endpoint) throws URISyntaxException {
         Endpoint targetEndpoint = new URLEndpoint(new URI(_endpoint));
         mReplConfig = new ReplicatorConfiguration(mDatabase.get(defaultDatabase), targetEndpoint);
+
+    }
+    public void setChannels(String channel){
+        List<String> channels = new ArrayList<>();
+        channels.add(channel); //now we set one channel that's our structure atleast for now.
+        mReplConfig.setChannels(channels);
     }
 
     public void setReplicatorType(String _type) throws CouchbaseLiteException {

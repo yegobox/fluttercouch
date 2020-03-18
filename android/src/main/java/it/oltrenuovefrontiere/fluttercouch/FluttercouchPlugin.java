@@ -149,6 +149,11 @@ public class FluttercouchPlugin implements CBManagerDelegate {
                         result.error("errGet", "error getting the document with id: " + _id, e.toString());
                     }
                     break;
+                case ("setChannell"):
+                    String _channel = call.arguments();
+                    mCBManager.setChannels(_channel);
+                    result.success(null);
+                    break;
                 case ("setReplicatorEndpoint"):
                     String _endpoint = call.arguments();
                     try {

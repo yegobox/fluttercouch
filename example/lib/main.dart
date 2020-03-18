@@ -123,6 +123,7 @@ class AppModel extends Model with Fluttercouch {
         "username": "Administrator",
         "password": "password"
       });
+      setChannel('1');
       setReplicatorContinuous(true);
       initReplicator();
       startReplicator();
